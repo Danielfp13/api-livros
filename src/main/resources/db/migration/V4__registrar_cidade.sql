@@ -1,0 +1,10 @@
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (1, 'Conceição dos Ouros', 13);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (2, 'Pouso Alegre', 13);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (3, 'São Paulo', 25);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (4, 'São Luiz', 10);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (5, 'Florianopolis', 24);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (6, 'Manaus',4);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (7, 'Porto Alegre', 21);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (8, 'São José dos campos',25);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (9, 'Estrema', 13);
+INSERT INTO public.cidade(id, nome, id_estado)VALUES (10, 'Palmas', 27);

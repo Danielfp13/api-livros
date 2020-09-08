@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -24,9 +25,10 @@ public class Cidade implements Serializable {
 	private Integer id;
 	
 	@NotNull
-	@Column(name = "sigla" , columnDefinition = "varchar(100)", unique = true)
+	@Column(name = "nome" , columnDefinition = "varchar(100)", unique = true)
 	private String nome;
 	
+
 	@ManyToOne
 	@JoinColumn(name = "id_estado")
 	@NotNull
