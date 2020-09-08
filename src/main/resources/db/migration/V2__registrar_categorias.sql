@@ -1,0 +1,10 @@
+INSERT INTO categoria(id, tipo)	VALUES (1, 1);
+INSERT INTO categoria(id, tipo)	VALUES (2, 1);
+INSERT INTO categoria(id, tipo)	VALUES (3, 3);
+INSERT INTO categoria(id, tipo)	VALUES (4, 2);
+INSERT INTO categoria(id, tipo)	VALUES (5, 6);
+INSERT INTO categoria(id, tipo)	VALUES (6, 5);
+INSERT INTO categoria(id, tipo)	VALUES (7, 4);
+INSERT INTO categoria(id, tipo)	VALUES (8, 3);
+INSERT INTO categoria(id, tipo)	VALUES (9, 2);
+INSERT INTO categoria(id, tipo)	VALUES (10, 1);
