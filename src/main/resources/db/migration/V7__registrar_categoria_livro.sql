@@ -1,0 +1,10 @@
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 2,1);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 3,2);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 2,3);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 6,4);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 3,5);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 9,6);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 8,7);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 7,8);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 4,9);
+INSERT INTO categoria_livro(id_categoria, id_livro)	VALUES ( 6,10);
