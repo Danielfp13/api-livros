@@ -28,7 +28,7 @@ public class Endereco implements Serializable {
 	private String logradouro;
 	
 	@NotNull
-	@Column(name = "numeroo" , columnDefinition = "varchar(5)")
+	@Column(name = "numero" , columnDefinition = "varchar(5)")
 	private String numero;
 	
 	@NotNull
