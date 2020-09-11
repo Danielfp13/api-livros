@@ -1,4 +1,4 @@
-package com.api.livros.model.service;
+package com.api.livros.model.services;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.api.livros.model.domain.Endereco;
-import com.api.livros.model.repository.EnderecoRepository;
-import com.api.livros.model.service.exceptions.ObjectNotFoundException;
+import com.api.livros.model.repositories.EnderecoRepository;
+import com.api.livros.model.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class EnderecoService {

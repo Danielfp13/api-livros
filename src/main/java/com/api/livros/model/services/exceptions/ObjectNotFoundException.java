@@ -1,4 +1,4 @@
-package com.api.livros.model.service.exceptions;
+package com.api.livros.model.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
 

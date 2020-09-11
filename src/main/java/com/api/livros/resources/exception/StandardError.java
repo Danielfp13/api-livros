@@ -1,4 +1,4 @@
-package com.api.livros.model.recources.exception;
+package com.api.livros.resources.exception;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.api.livros.model.recources.exception;
+package com.api.livros.resources.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.api.livros.model.service.exceptions.ObjectNotFoundException;
+import com.api.livros.model.services.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

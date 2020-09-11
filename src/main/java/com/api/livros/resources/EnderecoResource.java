@@ -1,4 +1,4 @@
-package com.api.livros.model.recources;
+package com.api.livros.resources;
 
 import java.net.URI;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.api.livros.model.domain.Endereco;
-import com.api.livros.model.service.EnderecoService;
+import com.api.livros.model.services.EnderecoService;
 
 @RestController
 @RequestMapping(value = "/enderecos")
