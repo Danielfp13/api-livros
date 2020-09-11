@@ -9,14 +9,14 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.api.livros.model.domain.Usuario;
-import com.api.livros.model.repository.usuarioRepository;
+import com.api.livros.model.repository.UsuarioRepository;
 import com.api.livros.model.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class UsuarioService {
 
 	@Autowired
-	private usuarioRepository repository;
+	private UsuarioRepository repository;
 
 	public List<Usuario> findAll() {
 		List<Usuario> usuarios = repository.findAll();

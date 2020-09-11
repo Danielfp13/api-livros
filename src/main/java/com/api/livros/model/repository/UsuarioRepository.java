@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.api.livros.model.domain.Usuario;
 
-public interface usuarioRepository extends JpaRepository<Usuario, Integer> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
 	@Query(value = "SELECT * FROM usuario WHERE id = :id" , nativeQuery = true)
 	Usuario findUsuario(Integer id);

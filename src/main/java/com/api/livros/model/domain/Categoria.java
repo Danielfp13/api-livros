@@ -1,12 +1,15 @@
 package com.api.livros.model.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
@@ -23,11 +26,10 @@ public class Categoria implements Serializable{
 	
 	@NotNull
 	@Column(name = "tipo" , columnDefinition = "Integer")
-	private Integer tipo;
+	private Integer tipo;	
 	
-//	CATEGORIA
-//	@ManyToMany(mappedBy="categorias")
-//	private List<Livro> livros = new ArrayList<Livro>();
+	@ManyToMany(mappedBy="categorias")
+	private List<Livro> livros = new ArrayList<>();
 	
 	public Categoria() {
 		super();
@@ -53,6 +55,15 @@ public class Categoria implements Serializable{
 
 	public void setTipo(Integer tipo) {
 		this.tipo = tipo;
+	}
+
+	
+	public List<Livro> getLivros() {
+		return livros;
+	}
+
+	public void setLivros(List<Livro> livros) {
+		this.livros = livros;
 	}
 
 	@Override

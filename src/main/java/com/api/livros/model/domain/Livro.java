@@ -55,13 +55,14 @@ public class Livro implements Serializable {
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
-	@JsonIgnore
+    @JsonIgnore
 	@ManyToMany
-	@JoinTable(name = "categoria_livro", joinColumns = @JoinColumn(name = "id_livro"),
-	inverseJoinColumns = @JoinColumn(name = "id_categoria"))
-	List<Categoria> categorias = new ArrayList<Categoria>();
-
-
+	@JoinTable(name = "categoria_livro", 
+		joinColumns = @JoinColumn(name = "id_livro"),
+		inverseJoinColumns = @JoinColumn(name = "id_categoria")
+	)
+	private List<Categoria> categorias = new ArrayList<>();
+	
 	public Livro() {
 		super();
 	}
@@ -141,6 +142,14 @@ public class Livro implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 	@Override
