@@ -26,7 +26,7 @@ public class Estado implements Serializable {
 	private  Integer id;
 	
 	@NotNull
-	@Column(name = "sigla" , columnDefinition = "varchar(2)", unique = true)
+	@Column(name = "uf" , columnDefinition = "varchar(2)", unique = true)
 	private String sigla;
 	@Column(name = "nome" , columnDefinition = "varchar(100)")
 	private String nome;

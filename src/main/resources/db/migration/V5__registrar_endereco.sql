@@ -1,5 +1,5 @@
 INSERT INTO endereco(	id, logradouro, numero, bairro, complemento, cep, id_cidade)
-	VALUES (11,'Rua Santa Maria','234','Santa Efigênia','casa','37540-000',1 );
+	VALUES (1,'Rua Santa Maria','234','Santa Efigênia','casa','37540-000',1 );
 INSERT INTO endereco(	id, logradouro, numero, bairro, complemento, cep, id_cidade)
 	VALUES (2,'Rua Alves Correia','657','Centro','apt','37540-000',2 );
 INSERT INTO endereco(	id, logradouro, numero, bairro, complemento, cep, id_cidade)

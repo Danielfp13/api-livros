@@ -2,6 +2,9 @@ package com.api.livros.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.api.livros.dto.UsuarioDTO;
+import com.api.livros.dto.UsuarioNewDTO;
 import com.api.livros.model.domain.Usuario;
 import com.api.livros.model.services.UsuarioService;
 
@@ -26,11 +31,12 @@ public class UsuarioResource{
 
 	@Autowired
 	private UsuarioService service;
-	
+
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll(){
+	public ResponseEntity<List<UsuarioDTO>> findAll(){
 		List<Usuario> lista = service.findAll();
-		return ResponseEntity.ok().body(lista);
+		List<UsuarioDTO>listaDto = lista.stream().map(usuario -> new UsuarioDTO(usuario)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listaDto);
 	}
 	
 	@GetMapping("/{id}")
@@ -39,20 +45,21 @@ public class UsuarioResource{
 		return ResponseEntity.ok().body(usuario);
 	}
 	
-	@GetMapping(value = "/pages")
-	public ResponseEntity<Page<Usuario>>findPage(
+	@GetMapping(value = "/page")
+	public ResponseEntity<Page<UsuarioDTO>>findPage(
 			@RequestParam(name = "page" , defaultValue = "0") Integer page,
 			@RequestParam(name = "linePerPage" , defaultValue = "5") Integer linePerPage,
 			@RequestParam(name = "orderBy" , defaultValue = "nome") String orderBy,
 			@RequestParam(name = "direction" , defaultValue = "ASC") String direction){
 		
 		Page<Usuario> lista = service.findPage(page,linePerPage, orderBy, direction);
-		return ResponseEntity.ok().body(lista);
+		Page<UsuarioDTO> listaDto = lista.map(usuario -> new UsuarioDTO(usuario));
+		return ResponseEntity.ok().body(listaDto);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody Usuario usuario){
-		usuario = service.insert(usuario);
+	public ResponseEntity<Void> insert(@Valid @RequestBody UsuarioNewDTO usuarioNewDto){
+		Usuario usuario = service.insert(usuarioNewDto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}

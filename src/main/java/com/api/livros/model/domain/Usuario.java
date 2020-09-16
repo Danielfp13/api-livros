@@ -3,6 +3,7 @@ package com.api.livros.model.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -70,7 +71,7 @@ public class Usuario implements Serializable {
 	@Column(name = "termo" , columnDefinition = "boolean")
 	private Boolean termo;
 	
-	@ManyToOne
+	@ManyToOne(cascade =  CascadeType.ALL)
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 

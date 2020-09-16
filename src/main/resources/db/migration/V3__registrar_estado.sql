@@ -1,29 +1,28 @@
-INSERT INTO estado(id, sigla, nome)VALUES (1,'AC','Acre');
-INSERT INTO estado(id, sigla, nome)VALUES (2,'AL','Alagoas');
-INSERT INTO estado(id, sigla, nome)VALUES (3,'AP','Amapá');
-INSERT INTO estado(id, sigla, nome)VALUES (4,'AM','Amazonas');
-INSERT INTO estado(id, sigla, nome)VALUES (5,'BA','Bahia');
-INSERT INTO estado(id, sigla, nome)VALUES (6,'CE','Ceará');
-INSERT INTO estado(id, sigla, nome)VALUES (7,'DF','Distrito Federal');
-INSERT INTO estado(id, sigla, nome)VALUES (8,'ES','Espírito Santo');
-INSERT INTO estado(id, sigla, nome)VALUES (9,'GO','Goiás');
-INSERT INTO estado(id, sigla, nome)VALUES (10,'MA','Maranhão');
-INSERT INTO estado(id, sigla, nome)VALUES (11,'MT','Mato Grosso');
-INSERT INTO estado(id, sigla, nome)VALUES (12,'MS','Mato Grosso do Sul');
-INSERT INTO estado(id, sigla, nome)VALUES (13,'MG','Minas Gerais');
-INSERT INTO estado(id, sigla, nome)VALUES (14,'PA','Pará');
-INSERT INTO estado(id, sigla, nome)VALUES (15,'PB','Paraíba');
-INSERT INTO estado(id, sigla, nome)VALUES (16,'PR','Paraná');
-INSERT INTO estado(id, sigla, nome)VALUES (17,'PE','Pernambuco');
-INSERT INTO estado(id, sigla, nome)VALUES (18,'PI','Piauí');
-INSERT INTO estado(id, sigla, nome)VALUES (19,'RJ','Rio de Janeiro');
-INSERT INTO estado(id, sigla, nome)VALUES (20,'RN','Rio Grande do Norte');
-INSERT INTO estado(id, sigla, nome)VALUES (21,'RS','Rio Grande do Sul');
-INSERT INTO estado(id, sigla, nome)VALUES (22,'RO','Rondônia');
-INSERT INTO estado(id, sigla, nome)VALUES (23,'RR','Roraima');
-INSERT INTO estado(id, sigla, nome)VALUES (24,'SC','Santa Catarina');
-INSERT INTO estado(id, sigla, nome)VALUES (25,'SP','São Paulo');
-INSERT INTO estado(id, sigla, nome)VALUES (26,'SE','Sergipe');
-INSERT INTO estado(id, sigla, nome)VALUES (27,'TO','Tocantins');
-
-
+INSERT INTO estado (id, nome, uf) VALUES
+(1, 'Acre', 'AC'),
+(2, 'Alagoas', 'AL'),
+(3, 'Amazonas', 'AM'),
+(4, 'Amapá', 'AP'),
+(5, 'Bahia', 'BA'),
+(6, 'Ceará', 'CE'),
+(7, 'Distrito Federal', 'DF'),
+(8, 'Espírito Santo', 'ES'),
+(9, 'Goiás', 'GO'),
+(10, 'Maranhão', 'MA'),
+(11, 'Minas Gerais', 'MG'),
+(12, 'Mato Grosso do Sul', 'MS'),
+(13, 'Mato Grosso', 'MT'),
+(14, 'Pará', 'PA'),
+(15, 'Paraíba', 'PB'),
+(16, 'Pernambuco', 'PE'),
+(17, 'Piauí', 'PI'),
+(18, 'Paraná', 'PR'),
+(19, 'Rio de Janeiro', 'RJ'),
+(20, 'Rio Grande do Norte', 'RN'),
+(21, 'Rondônia', 'RO'),
+(22, 'Roraima', 'RR'),
+(23, 'Rio Grande do Sul', 'RS'),
+(24, 'Santa Catarina', 'SC'),
+(25, 'Sergipe', 'SE'),
+(26, 'São Paulo', 'SP'),
+(27, 'Tocantins', 'TO');
