@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.api.livros.dto.UsuarioNewDTO;
+import com.api.livros.dto.UsuarioUpdateDTO;
 import com.api.livros.model.domain.Cidade;
 import com.api.livros.model.domain.Endereco;
 import com.api.livros.model.domain.Usuario;
@@ -62,10 +63,12 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public Usuario update(Usuario obj, Integer id) {
-		obj.setId(id);
+	public Usuario update(UsuarioUpdateDTO obj, Integer id) {
 		find(id);
-		return repository.save(obj);
+		Usuario newObj = repository.findUsuario(id);
+		newObj=updateFromUsuario(obj, newObj);
+		newObj.setId(id);
+		return repository.save(newObj);
 	}
 
 	public void delete(Integer id) {
@@ -89,8 +92,32 @@ public class UsuarioService {
 		Usuario usuario = new Usuario(null,obj.getNome(), obj.getEmail(), obj.getDataNascimento(),
 				obj.getSenha(), true, new Date(), null, obj.getTelefone1(), obj.getTelefone2(),
 				obj.getFoto(), obj.getCpf(), obj.getTermo(),endereco);
-		
+		 
 		return usuario;
+	}
+	
+	private Usuario updateFromUsuario(UsuarioUpdateDTO obj, Usuario newObj) {
+		
+		Cidade cidade = cidadeRepository.getOne(obj.getCidadeId());
+		Endereco endereco = enderecoRepository.findEndereco(newObj.getEndereco().getId());
+		
+		endereco.setBairro(obj.getBairro());
+		endereco.setLogradouro(obj.getLogradouro());
+		endereco.setNumero(obj.getNumero());
+		endereco.setComplemento(obj.getComplemento());
+		endereco.setCep(obj.getCep());
+		endereco.setCidade(cidade);
+		
+		newObj.setNome(obj.getNome());
+		newObj.setEmail(obj.getEmail());
+		newObj.setDataNascimento(obj.getDataNascimento());
+		newObj.setDataAtualizacao(new Date());
+		newObj.setTelefone1(obj.getTelefone1());
+		newObj.setTelefone2(obj.getTelefone2());
+		newObj.setFoto(obj.getFoto());
+		newObj.setEndereco(endereco);
+	
+	return newObj;
 	}
 	
 }

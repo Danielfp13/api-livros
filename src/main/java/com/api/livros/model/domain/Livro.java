@@ -15,7 +15,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -55,7 +54,6 @@ public class Livro implements Serializable {
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
-    @JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "categoria_livro", 
 		joinColumns = @JoinColumn(name = "id_livro"),

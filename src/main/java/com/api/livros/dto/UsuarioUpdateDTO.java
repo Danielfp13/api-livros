@@ -2,32 +2,24 @@ package com.api.livros.dto;
 
 import java.util.Date;
 
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.api.livros.model.services.validation.EmailDuplicado;
-import com.api.livros.model.services.validation.UsuarioInsert;
+import com.api.livros.model.services.validation.UsuarioUpdate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@UsuarioInsert
-public class UsuarioNewDTO {
+@UsuarioUpdate
+public class UsuarioUpdateDTO {
 
 	@NotEmpty(message = "Preenchimento Obrigratório.")
 	private String nome;
 
-	@EmailDuplicado(message = "Essa Email já existe")
 	@NotEmpty(message = "Preenchimento Obrigratório.")
 	@Email(message = "Email incorreto.")
 	private String email;
-
-	@NotEmpty(message = "Preenchimento Obrigratório.")
-	@Length(min = 8, max = 20, message = "A senha deve ter de 8 a 20 caracteres")
-	private String senha;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
@@ -60,19 +52,22 @@ public class UsuarioNewDTO {
 	@NotNull(message = "Preenchimento obrigatório.")
 	private Integer cidadeId;
 
-	@AssertTrue(message = "Tem que aceitar o termo de uso")
-	private Boolean termo;
-
-	public UsuarioNewDTO() {
+	public UsuarioUpdateDTO() {
 		super();
 	}
 
-	public UsuarioNewDTO(String nome, String email, String senha, Date dataNascimento, String telefone1,
-			String telefone2, String foto, String cpf, String logradouro, String numero, String bairro,
-			String complemento, String cep, Integer cidadeId, Boolean termo) {
+	public UsuarioUpdateDTO(@NotEmpty(message = "Preenchimento Obrigratório.") String nome,
+			@NotEmpty(message = "Preenchimento Obrigratório.") @Email(message = "Email incorreto.") String email,
+			Date dataNascimento, @NotEmpty(message = "Preenchimento obrigatório.") String telefone1, String telefone2,
+			String foto, @CPF(message = "CPF inválido.") @NotEmpty(message = "Preenchimento obrigatório.") String cpf,
+			@NotEmpty(message = "Preenchimento obrigatório.") String logradouro,
+			@NotEmpty(message = "Preenchimento obrigatório.") String numero,
+			@NotEmpty(message = "Preenchimento obrigatório.") String bairro, String complemento,
+			@NotEmpty(message = "Preenchimento obrigatório.") String cep,
+			@NotNull(message = "Preenchimento obrigatório.") Integer cidadeId) {
+		super();
 		this.nome = nome;
 		this.email = email;
-		this.senha = senha;
 		this.dataNascimento = dataNascimento;
 		this.telefone1 = telefone1;
 		this.telefone2 = telefone2;
@@ -84,8 +79,9 @@ public class UsuarioNewDTO {
 		this.complemento = complemento;
 		this.cep = cep;
 		this.cidadeId = cidadeId;
-		this.termo = termo;
 	}
+
+
 
 	public String getNome() {
 		return nome;
@@ -101,14 +97,6 @@ public class UsuarioNewDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public Date getDataNascimento() {
@@ -197,13 +185,5 @@ public class UsuarioNewDTO {
 
 	public void setCidadeId(Integer cidadeId) {
 		this.cidadeId = cidadeId;
-	}
-
-	public Boolean getTermo() {
-		return termo;
-	}
-
-	public void setTermo(Boolean termo) {
-		this.termo = termo;
 	}
 }

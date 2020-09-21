@@ -3,6 +3,7 @@ package com.api.livros.model.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.livros.model.domain.Categoria;
 import com.api.livros.model.repositories.CategoriaRepository;
+import com.api.livros.model.services.exceptions.DataIntegrityException;
 import com.api.livros.model.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -35,11 +37,15 @@ public class CategoriaService {
 	}
 
 	public void delete(Integer id) {
-		find(id);	
-		repository.deleteById(id);
-		
+		find(id);
+		try {
+			repository.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Não pode deletar categoria que contenha livros,");
+		}
 	}
 
+	
 	public Categoria update(Categoria categoria, Integer id) {
 		categoria.setId(id);
 		find(categoria.getId());

@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.api.livros.dto.UsuarioDTO;
 import com.api.livros.dto.UsuarioNewDTO;
+import com.api.livros.dto.UsuarioUpdateDTO;
 import com.api.livros.model.domain.Usuario;
 import com.api.livros.model.services.UsuarioService;
 
@@ -65,8 +66,9 @@ public class UsuarioResource{
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> update(@RequestBody Usuario usuario, @PathVariable Integer id){
-		usuario = service.update(usuario, id);
+	public ResponseEntity<Void> update(@Valid @RequestBody UsuarioUpdateDTO usuarioUpdateDTO, @PathVariable Integer id){
+		@SuppressWarnings("unused")
+		Usuario usuario = service.update(usuarioUpdateDTO, id);
 		return ResponseEntity.noContent().build();
 	}
 	

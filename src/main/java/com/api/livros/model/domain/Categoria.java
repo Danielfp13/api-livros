@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -28,6 +29,7 @@ public class Categoria implements Serializable{
 	@Column(name = "tipo" , columnDefinition = "Integer")
 	private Integer tipo;	
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy="categorias")
 	private List<Livro> livros = new ArrayList<>();
 	

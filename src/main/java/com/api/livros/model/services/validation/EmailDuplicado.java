@@ -10,14 +10,14 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = UsuarioInsertValidator.class)
-@Target( {ElementType.TYPE})
+@Constraint(validatedBy = EmailDuplicadoValidator.class)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
+public @interface EmailDuplicado  {
 
-public @interface UsuarioInsert {
-	String message() default "Erro de validação";
+	String message() default "Email já Existe.";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
-	};
+}
